@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Keeps by Aly — Custom Wedding Signage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #FAF7F2;
+      --blush: #E8D5C9;
+      --rose: #C4907A;
+      --deep: #3D2B22;
+      --muted: #8A7066;
+      --sage: #A8B5A0;
+      --serif: 'Cormorant Garamond', serif;
+      --sans: 'Jost', sans-serif;
+    }
+
+    body { background: var(--cream); color: var(--deep); font-family: var(--sans); }
+
+    .site { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 2rem 0 1.5rem;
+      border-bottom: 0.5px solid var(--blush);
+    }
+    .nav-logo {
+      font-family: var(--serif); font-size: 22px; font-weight: 300; letter-spacing: 0.04em;
+      font-style: italic; color: var(--deep);
+    }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      font-family: var(--sans); font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; font-weight: 400; cursor: pointer;
+    }
+    .nav-links a:hover { color: var(--deep); }
+    .nav-ig {
+      display: flex; align-items: center; gap: 6px;
+      font-family: var(--sans); font-size: 12px; letter-spacing: 0.1em;
+      color: var(--rose) !important; text-decoration: none; font-weight: 400;
+      text-transform: none !important;
+    }
+    .nav-ig:hover { color: var(--deep) !important; }
+
+    .hero {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+      align-items: center; padding: 5rem 0 4rem;
+    }
+    .hero-eyebrow {
+      font-family: var(--sans); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--sage); margin-bottom: 1.25rem;
+    }
+    .hero-title {
+      font-family: var(--serif); font-size: 58px; font-weight: 300; line-height: 1.1;
+      color: var(--deep); margin-bottom: 1.5rem;
+    }
+    .hero-title em { font-style: italic; color: var(--rose); }
+    .hero-sub {
+      font-family: var(--sans); font-size: 14px; line-height: 1.8; color: var(--muted);
+      font-weight: 300; max-width: 360px; margin-bottom: 2rem;
+    }
+    .btn-primary {
+      display: inline-block; font-family: var(--sans); font-size: 12px;
+      letter-spacing: 0.15em; text-transform: uppercase; padding: 14px 32px;
+      background: var(--deep); color: var(--cream); cursor: pointer;
+      border: none; font-weight: 400; text-decoration: none;
+    }
+    .btn-primary:hover { background: var(--rose); }
+
+    .hero-visual {
+      position: relative; height: 420px;
+      background: var(--blush);
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .hero-sign {
+      font-family: var(--serif); font-style: italic; font-weight: 300;
+      color: var(--deep); text-align: center; line-height: 1.3;
+    }
+    .hero-sign .big { font-size: 44px; }
+    .hero-sign .small { font-size: 18px; color: var(--muted); display: block; margin-top: 4px; }
+    .hero-sign .amp { font-size: 60px; color: var(--rose); line-height: 1; }
+    .deco-line {
+      position: absolute; width: 1px; height: 60px; background: var(--rose);
+      top: 32px; left: 50%; transform: translateX(-50%);
+    }
+    .deco-line-b {
+      position: absolute; width: 1px; height: 60px; background: var(--rose);
+      bottom: 32px; left: 50%; transform: translateX(-50%);
+    }
+    .corner { position: absolute; width: 24px; height: 24px; opacity: 0.4; }
+    .corner.tl { top: 20px; left: 20px; border-top: 1px solid var(--deep); border-left: 1px solid var(--deep); }
+    .corner.tr { top: 20px; right: 20px; border-top: 1px solid var(--deep); border-right: 1px solid var(--deep); }
+    .corner.bl { bottom: 20px; left: 20px; border-bottom: 1px solid var(--deep); border-left: 1px solid var(--deep); }
+    .corner.br { bottom: 20px; right: 20px; border-bottom: 1px solid var(--deep); border-right: 1px solid var(--deep); }
+
+    .divider { display: flex; align-items: center; gap: 1.5rem; margin: 1rem 0; }
+    .divider-line { flex: 1; height: 0.5px; background: var(--blush); }
+    .divider-leaf { color: var(--sage); font-size: 14px; }
+
+    .services { padding: 4rem 0; }
+    .section-label {
+      font-family: var(--sans); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--sage); text-align: center; margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--serif); font-size: 40px; font-weight: 300; font-style: italic;
+      text-align: center; color: var(--deep); margin-bottom: 3rem;
+    }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .service-card {
+      padding: 2rem 1.25rem; border: 0.5px solid var(--blush);
+      text-align: center; background: white; transition: border-color 0.2s;
+    }
+    .service-card:hover { border-color: var(--rose); }
+    .service-icon {
+      width: 48px; height: 48px; margin: 0 auto 1rem;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--cream); font-size: 22px; color: var(--rose);
+    }
+    .service-name {
+      font-family: var(--serif); font-size: 18px; font-style: italic;
+      color: var(--deep); margin-bottom: 0.5rem; font-weight: 300;
+    }
+    .service-desc { font-size: 12px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+    .process {
+      padding: 4rem 1.5rem; background: var(--deep);
+      margin: 0 -1.5rem;
+    }
+    .process .section-label { color: var(--rose); }
+    .process .section-title { color: var(--cream); }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .step { text-align: center; }
+    .step-num {
+      font-family: var(--serif); font-size: 60px; font-weight: 300; font-style: italic;
+      color: var(--rose); opacity: 0.5; line-height: 1; margin-bottom: 0.5rem;
+    }
+    .step-title { font-family: var(--serif); font-size: 20px; font-style: italic; color: var(--cream); margin-bottom: 0.5rem; }
+    .step-text { font-size: 13px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+    .inquiry { padding: 5rem 0; }
+    .inquiry-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+    .inquiry-intro { font-size: 14px; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 2rem; }
+    .inquiry-detail { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem; }
+    .inquiry-detail i { color: var(--rose); font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+    .inquiry-detail-text { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .inquiry-detail-text a { color: var(--rose); text-decoration: none; }
+    .inquiry-detail-text a:hover { color: var(--deep); }
+
+    .form-group { margin-bottom: 1.25rem; }
+    .form-label {
+      display: block; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 6px; font-weight: 400;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%; padding: 10px 12px;
+      border: 0.5px solid var(--blush); background: white;
+      font-family: var(--sans); font-size: 14px; color: var(--deep);
+      font-weight: 300; outline: none; transition: border-color 0.2s;
+      border-radius: 0; appearance: none; -webkit-appearance: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--rose); }
+    .form-textarea { min-height: 110px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-submit {
+      width: 100%; padding: 14px; background: var(--rose); color: white;
+      border: none; font-family: var(--sans); font-size: 12px;
+      letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: var(--deep); }
+    .success-msg {
+      display: none; padding: 1rem; background: #EAF3DE; border: 0.5px solid var(--sage);
+      font-size: 13px; color: #3B6D11; text-align: center; margin-top: 1rem;
+    }
+
+    footer {
+      text-align: center; padding: 2rem 0;
+      border-top: 0.5px solid var(--blush); margin-top: 2rem;
+      font-size: 12px; color: var(--muted); font-weight: 300;
+    }
+    footer span { font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--rose); }
+    .footer-ig {
+      display: inline-flex; align-items: center; gap: 5px; margin-top: 8px;
+      color: var(--rose); text-decoration: none; font-size: 12px; letter-spacing: 0.05em;
+    }
+    .footer-ig:hover { color: var(--deep); }
+
+    @media (max-width: 640px) {
+      .hero { grid-template-columns: 1fr; padding: 3rem 0 2rem; }
+      .hero-visual { height: 280px; }
+      .hero-title { font-size: 40px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: 1fr; }
+      .inquiry-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <nav>
+      <div class="nav-logo">For Keeps by Aly</div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#inquiry">Inquire</a>
+        <a class="nav-ig" href="https://instagram.com/forkeepsbyaly" target="_blank">
+          <i class="ti ti-brand-instagram" aria-hidden="true"></i>@forkeepsbyaly
+        </a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Custom Wedding Signage</p>
+        <h1 class="hero-title">Signs made to <em>last forever</em></h1>
+        <p class="hero-sub">Handcrafted, one-of-a-kind signage designed to tell your love story — from welcome signs to seating charts and everything in between.</p>
+        <a class="btn-primary" href="#inquiry">Start your inquiry</a>
+      </div>
+      <div class="hero-visual">
+        <div class="deco-line"></div>
+        <div class="deco-line-b"></div>
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+        <div class="hero-sign">
+          <div class="big">Emma</div>
+          <div class="amp">&</div>
+          <div class="big">James</div>
+          <div class="small">June 14, 2025 · Seattle, WA</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"><div class="divider-line"></div><div class="divider-leaf">✦</div><div class="divider-line"></div></div>
+
+    <div class="services" id="services">
+      <p class="section-label">What I create</p>
+      <h2 class="section-title">The collection</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="ti ti-writing" aria-hidden="true"></i></div>
+          <div class="service-name">Acrylic signs</div>
+          <p class="service-desc">Crystal-clear or frosted acrylic with hand-lettered vinyl — modern & timeless.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
+          <div class="service-name">Seating charts</div>
+          <p class="service-desc">Elegant seating arrangements that double as stunning décor pieces.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="ti ti-menu-2" aria-hidden="true"></i></div>
+          <div class="service-name">Menus & programs</div>
+          <p class="service-desc">From cocktail hour menus to full ceremony programs, beautifully lettered.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="ti ti-arch" aria-hidden="true"></i></div>
+          <div class="service-name">Welcome signs</div>
+          <p class="service-desc">Make a stunning first impression with a custom welcome sign for your venue.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="process" id="process">
+      <p class="section-label">How it works</p>
+      <h2 class="section-title">From vision to venue</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-title">Inquire</div>
+          <p class="step-text">Fill out the form below with your date, vision, and any inspo. I'll get back to you within 48 hours.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-title">Design</div>
+          <p class="step-text">We'll collaborate on the layout, wording, and aesthetic until it feels perfectly you.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-title">Deliver</div>
+          <p class="step-text">Your finished pieces are carefully packaged and shipped or delivered in time for your big day.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="inquiry" id="inquiry">
+      <p class="section-label">Let's work together</p>
+      <h2 class="section-title">Start your inquiry</h2>
+      <div class="inquiry-inner">
+        <div class="inquiry-info">
+          <p class="inquiry-intro">Every wedding is unique, and so is every sign I create. Tell me a little about your day and I'll put together a custom quote just for you.</p>
+          <div class="inquiry-detail">
+            <i class="ti ti-clock" aria-hidden="true"></i>
+            <div class="inquiry-detail-text">Book at least 8 weeks before your wedding date for custom orders.</div>
+          </div>
+          <div class="inquiry-detail">
+            <i class="ti ti-mail" aria-hidden="true"></i>
+            <div class="inquiry-detail-text">I respond to all inquiries within 48 hours.</div>
+          </div>
+          <div class="inquiry-detail">
+            <i class="ti ti-brand-instagram" aria-hidden="true"></i>
+            <div class="inquiry-detail-text">Follow along for inspiration and recent work — <a href="https://instagram.com/forkeepsbyaly" target="_blank">@forkeepsbyaly</a></div>
+          </div>
+          <div class="inquiry-detail">
+            <i class="ti ti-heart" aria-hidden="true"></i>
+            <div class="inquiry-detail-text">Each piece is made with care and designed exclusively for your celebration.</div>
+          </div>
+        </div>
+        <div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="f-name">Your name</label>
+              <input class="form-input" type="text" id="f-name" placeholder="e.g. Sarah"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-email">Email address</label>
+              <input class="form-input" type="email" id="f-email" placeholder="hello@email.com"/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="f-date">Wedding date</label>
+              <input class="form-input" type="date" id="f-date"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-venue">Venue / location</label>
+              <input class="form-input" type="text" id="f-venue" placeholder="e.g. Seattle, WA"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-type">What are you looking for?</label>
+            <select class="form-select" id="f-type">
+              <option value="">— Select signage type —</option>
+              <option>Acrylic signs & mirrors</option>
+              <option>Seating chart</option>
+              <option>Welcome sign</option>
+              <option>Menus & programs</option>
+              <option>Full signage package</option>
+              <option>Not sure — let's chat!</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-msg">Tell me about your vision</label>
+            <textarea class="form-textarea" id="f-msg" placeholder="Describe your wedding aesthetic, colors, any inspo, or anything else I should know…"></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm()">Send inquiry ✦</button>
+          <div class="success-msg" id="success-msg">
+            Thank you! I've received your inquiry and will be in touch within 48 hours. ✦
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <span>For Keeps by Aly</span><br>
+      <div style="margin-top:6px">Custom wedding signage, made with love &nbsp;✦&nbsp; Seattle, WA</div>
+      <a class="footer-ig" href="https://instagram.com/forkeepsbyaly" target="_blank">
+        <i class="ti ti-brand-instagram" aria-hidden="true"></i>@forkeepsbyaly
+      </a>
+    </footer>
+  </div>
+
+  <script>
+    function submitForm() {
+      const name = document.getElementById('f-name').value.trim();
+      const email = document.getElementById('f-email').value.trim();
+      if (!name || !email) {
+        alert('Please fill in your name and email address.');
+        return;
+      }
+      document.getElementById('success-msg').style.display = 'block';
+      const btn = document.querySelector('.form-submit');
+      btn.textContent = 'Inquiry sent!';
+      btn.style.background = '#A8B5A0';
+      btn.disabled = true;
+    }
+  </script>
+</body>
+</html>
