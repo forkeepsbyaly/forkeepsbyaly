@@ -336,7 +336,7 @@
             <label class="form-label" for="f-msg">Tell me about your vision</label>
             <textarea class="form-textarea" id="f-msg" placeholder="Describe your wedding aesthetic, colors, any inspo, or anything else I should know…"></textarea>
           </div>
-          <button class="form-submit" onclick="submitForm()">Send inquiry ✦</button>
+          <button class="form-submit" id="submit-btn" type="button" onclick="submitForm()">Send inquiry ✦</button>
           <div class="success-msg" id="success-msg">
             Thank you! I've received your inquiry and will be in touch within 48 hours. ✦
           </div>
@@ -354,18 +354,48 @@
   </div>
 
   <script>
-    function submitForm() {
+    async function submitForm() {
       const name = document.getElementById('f-name').value.trim();
       const email = document.getElementById('f-email').value.trim();
       if (!name || !email) {
         alert('Please fill in your name and email address.');
         return;
       }
-      document.getElementById('success-msg').style.display = 'block';
-      const btn = document.querySelector('.form-submit');
-      btn.textContent = 'Inquiry sent!';
-      btn.style.background = '#A8B5A0';
+
+      const btn = document.getElementById('submit-btn');
+      btn.textContent = 'Sending…';
       btn.disabled = true;
+
+      const data = {
+        name:        name,
+        email:       email,
+        wedding_date: document.getElementById('f-date').value,
+        venue:       document.getElementById('f-venue').value.trim(),
+        signage_type: document.getElementById('f-type').value,
+        message:     document.getElementById('f-msg').value.trim(),
+      };
+
+      try {
+        const res = await fetch('https://formspree.io/f/xjgllkrd', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        if (res.ok) {
+          document.getElementById('success-msg').style.display = 'block';
+          btn.textContent = 'Inquiry sent!';
+          btn.style.background = '#A8B5A0';
+        } else {
+          btn.textContent = 'Send inquiry ✦';
+          btn.disabled = false;
+          alert('Something went wrong. Please try again or email forkeepsbyaly@gmail.com directly.');
+        }
+      } catch (err) {
+        btn.textContent = 'Send inquiry ✦';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again or email forkeepsbyaly@gmail.com directly.');
+      }
     }
   </script>
 </body>
